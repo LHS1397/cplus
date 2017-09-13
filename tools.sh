@@ -1,7 +1,7 @@
 start()
 {
 	clear
-   cd /home/lovish/Desktop
+   cd /home/lovish/Videos
    echo " -----------------"
    echo "| C++ compile and |"
    echo "|      run        |"
@@ -12,7 +12,7 @@ start()
 
 list()
 {
-	echo 
+	echo
 	ls | grep "\.cpp$"
 	echo
 	intput
@@ -23,7 +23,7 @@ intput()
 	echo
 	echo "Enter the file name :"
 	read file
-    echo 
+    echo
     if [[ -f "$file".cpp ]];
     	then
     	echo "File "$file".cpp exist"
@@ -42,7 +42,7 @@ comrun()
    echo
    options=("Compile only" "Compile and Run" "exit")
    select opt in "${options[@]}"
-   do 
+   do
    case $opt in
    	"Compile only")
         compile
@@ -53,6 +53,7 @@ comrun()
          compile
          echo
          echo "Running."
+         clear
          echo
          ./"$file"
          echo
@@ -70,10 +71,11 @@ done
 
 compile()
 {
+  clear
 	  echo
         echo "compling......"
         g++ "$file".cpp -o "$file"
-        if [[ -f $file ]]; 
+        if [[ -f $file ]];
         	then
         	echo
         	echo "compiled"
@@ -83,11 +85,11 @@ compile()
 }
 
 decision()
-{   
-    echo 
+{
+    echo
     echo "Continue(Y) or Exit(N) Please enter u're choice : "
 	read choice
-	if [[ $choice == y || $choice == Y ]]; 
+	if [[ $choice == y || $choice == Y ]];
         	then
         	start
         else
